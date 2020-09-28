@@ -57,9 +57,9 @@ class Handler:
 
                 )
 
-                await self.pool.return_first_result("delete_token", token)
+                await self.controller.pool.return_first_result("delete_token", token)
 
-                if (await self.pool.return_first_result("token_exists", token)):
+                if (await self.controller.pool.return_first_result("token_exists", token)):
                     logger.warning(
                         _("%s: Hubo un problema borrando el token expirado del usuario"),
                         self.get_template(logging.WARNING)
